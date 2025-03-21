@@ -1,0 +1,44 @@
+@startuml
+
+top to bottom direction
+skinparam linetype ortho
+
+class BMWBuilder {
+  + BMWBuilder(): 
+  + buildBody(): void
+  + buildWheel(): void
+  + buildOilBox(): void
+}
+class BenZBuilder {
+  + BenZBuilder(): 
+  + buildWheel(): void
+  + buildOilBox(): void
+  + buildBody(): void
+}
+class Builder {
+  + Builder(): 
+  + buildOilBox(): void
+  + buildWheel(): void
+  + buildBody(): void
+   car: Car
+}
+class Car {
+  + Car(): 
+  + toString(): String
+   oilBox: String
+   body: String
+   wheel: String
+}
+class Director {
+  + Director(): 
+  + buildCar(): Car
+   builder: Builder
+}
+class Main {
+  + Main(): 
+  + main(String[]): void
+}
+
+BMWBuilder   -[#000082,plain]-^  Builder     
+BenZBuilder  -[#000082,plain]-^  Builder     
+@enduml

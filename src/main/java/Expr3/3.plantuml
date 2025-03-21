@@ -1,0 +1,49 @@
+@startuml
+
+top to bottom direction
+skinparam linetype ortho
+
+interface Cola << interface >> {
+  + bubble(): void
+}
+interface Factory << interface >> {
+  + createCola(): Cola
+  + createHamburg(): Hamburg
+}
+interface Hamburg << interface >> {
+  + steam(): void
+}
+class KFCCola {
+  + KFCCola(): 
+  + bubble(): void
+}
+class KFCFactory {
+  + KFCFactory(): 
+  + createCola(): Cola
+  + createHamburg(): Hamburg
+}
+class KFCHamburg {
+  + KFCHamburg(): 
+  + steam(): void
+}
+class McDonaldsCola {
+  + McDonaldsCola(): 
+  + bubble(): void
+}
+class McDonaldsFactory {
+  + McDonaldsFactory(): 
+  + createHamburg(): Hamburg
+  + createCola(): Cola
+}
+class McDonaldsHamburg {
+  + McDonaldsHamburg(): 
+  + steam(): void
+}
+
+KFCCola           -[#008200,dashed]-^  Cola             
+KFCFactory        -[#008200,dashed]-^  Factory          
+KFCHamburg        -[#008200,dashed]-^  Hamburg          
+McDonaldsCola     -[#008200,dashed]-^  Cola             
+McDonaldsFactory  -[#008200,dashed]-^  Factory          
+McDonaldsHamburg  -[#008200,dashed]-^  Hamburg          
+@enduml

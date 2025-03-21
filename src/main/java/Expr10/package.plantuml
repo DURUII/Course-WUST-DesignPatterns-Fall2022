@@ -1,0 +1,30 @@
+@startuml
+
+
+
+
+class Book {
+  + Book(String, Double, Discount): 
+   discount: Discount
+   price: Double
+   discountedPrice: double
+}
+
+interface Discount << interface >> {
+  + compute(Double): double
+}
+
+class CS {
+  + CS(): 
+  + compute(Double): double
+}
+
+class En {
+  + En(): 
+  + compute(Double): double
+}
+
+Book     "1" *-[#595959,plain]-> "discount\n1" Discount 
+CS        -[#008200,dashed]-^  Discount 
+En        -[#008200,dashed]-^  Discount 
+@enduml

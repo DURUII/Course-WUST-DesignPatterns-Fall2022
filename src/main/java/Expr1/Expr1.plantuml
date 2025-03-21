@@ -1,0 +1,32 @@
+@startuml
+
+title __实验一 UML图__\n
+
+  namespace Expr1 {
+    class Expr1.AppConfig {
+        {static} - appConfig : AppConfig
+        - parameter : String
+        + getParameter()
+        + setParameter()
+        {static} + instance()
+        - AppConfig()
+    }
+  }
+  
+
+  namespace Expr1 {
+    interface Expr1.Resource {
+        {abstract} + getParameter()
+        {abstract} + setParameter()
+    }
+  }
+
+  Expr1.AppConfig .up.|> Expr1.Resource:实现
+  Expr1.AppConfig o--> Expr1.AppConfig:自关联（聚合）
+
+
+right footer
+202013407457 杜睿
+endfooter
+
+@enduml

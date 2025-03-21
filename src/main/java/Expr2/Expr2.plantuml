@@ -1,0 +1,57 @@
+@startuml
+
+top to bottom direction
+skinparam linetype ortho
+
+class AcerFactory {
+  + AcerFactory():
+  + build(): ILaptop
+}
+class AcerLaptop {
+  + AcerLaptop():
+  + info(): void
+}
+class DellFactory {
+  + DellFactory():
+  + build(): ILaptop
+}
+class DellLaptop {
+  + DellLaptop():
+  + info(): void
+}
+class HPFactory {
+  + HPFactory():
+  + build(): ILaptop
+}
+class HPLaptop {
+  + HPLaptop():
+  + info(): void
+}
+interface IFactory << interface >> {
+  + build(): ILaptop
+}
+interface ILaptop << interface >> {
+  + info(): void
+}
+class LenovoFactory {
+  + LenovoFactory():
+  + build(): ILaptop
+}
+class LenovoLaptop {
+  + LenovoLaptop():
+  + info(): void
+}
+
+AcerFactory    -[#595959,dashed]->  AcerLaptop    : "«create»"
+AcerFactory    -[#008200,dashed]-^  IFactory
+AcerLaptop     -[#008200,dashed]-^  ILaptop
+DellFactory    -[#595959,dashed]->  DellLaptop    : "«create»"
+DellFactory    -[#008200,dashed]-^  IFactory
+DellLaptop     -[#008200,dashed]-^  ILaptop
+HPFactory      -[#595959,dashed]->  HPLaptop      : "«create»"
+HPFactory      -[#008200,dashed]-^  IFactory
+HPLaptop       -[#008200,dashed]-^  ILaptop
+LenovoFactory  -[#008200,dashed]-^  IFactory
+LenovoFactory  -[#595959,dashed]->  LenovoLaptop  : "«create»"
+LenovoLaptop   -[#008200,dashed]-^  ILaptop
+@enduml
